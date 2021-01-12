@@ -19,46 +19,24 @@
       *----------------------------------------------------------------*
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
-      *-------recebendo retorno em uma string auxiliar-----------------*
-       01 WS-DATETIME              PIC X(21).
-      *------formatado pegando partes da string por indice-----*
-       01 WS-FORMATTED-DT.
-           05 WS-FORMATTED-DTE-TME.
-               15 WS-FORMATTED-DY    PIC  9(2).
-               15 FILLER             PIC X VALUE '-'.
-               15 WS-FORMATTED-MONTH PIC  9(2).
-               15 FILLER             PIC X VALUE '-'.
-               15 WS-FORMATTED-YEAR  PIC  9(4).
-               15 FILLER             PIC X VALUE '-'.
+       01 WS-DESCRIPTION.
+           05 WS-DATE1.
+               10 WS-DATE         PIC X(2) VALUE '20'.
+               10 FILLER          PIC X    VALUE '-'.
+               10 WS-MONTH        PIC X(2) VALUE '08'.
+               10 FILLER          PIC X    VALUE '-'.
+               10 WS-YEAR         PIC X(4) VALUE '2020'.
 
-               15 WS-FORMATTED-HOUR  PIC  9(2).
-               15 FILLER             PIC X VALUE ':'.
-               15 WS-FORMATTED-MINS  PIC  9(2).
-               15 FILLER             PIC X VALUE ':'.
-               15 WS-FORMATTED-SEC   PIC  9(2).
-               15 FILLER             PIC X VALUE ':'.
-               15 WS-FORMATTED-MS    PIC  9(2).
+      *---- FUNCIONA COMO UM PONTEIRO PARA A MESMA REGIAO DE MEMORIA --*
+           05 WS-DATE2 REDEFINES WS-DATE1 PIC 9(10).
       *----------------------------------------------------------------*
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-      *-------- move resultado para a "string":
-               MOVE FUNCTION CURRENT-DATE TO WS-DATETIME.
-
-      *-------- pega "pedaços da "string" por indice:
-               MOVE WS-DATETIME(1:4)  TO WS-FORMATTED-YEAR.
-               MOVE WS-DATETIME(5:2)  TO WS-FORMATTED-MONTH.
-               MOVE WS-DATETIME(7:2)  TO WS-FORMATTED-DY.
-               MOVE WS-DATETIME(9:2)  TO WS-FORMATTED-HOUR.
-               MOVE WS-DATETIME(11:2) TO WS-FORMATTED-MINS.
-               MOVE WS-DATETIME(13:2) TO WS-FORMATTED-SEC.
-               MOVE WS-DATETIME(15:2) TO WS-FORMATTED-MS.
-
-
-               DISPLAY WS-DATETIME.
-               DISPLAY WS-FORMATTED-DT.
+           DISPLAY "WS-DATE1 : "WS-DATE1.
+           DISPLAY "WS-DATE2 : "WS-DATE2.
 
            STOP RUN.
 
