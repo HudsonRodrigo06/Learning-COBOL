@@ -20,17 +20,19 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-VALOR1           PIC 9(5)   VALUE 100.
-       77  WRK-VALOR2           PIC 9(5)   VALUE 2.
+       77  WRK-VALOR           PIC 9(5)   VALUE 60.
+       77  WRK-RESTO            PIC 9(5)   VALUE ZEROS.
+       77  WRK-RESULTADO        PIC 9(5)   VALUE ZEROS.
+
+
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
-
-
-           SUBTRACT 50 FROM 100 GIVING WRK-VALOR1.
-           COMPUTE WRK-VALOR1 = 100 - 60.
-           DISPLAY WRK-VALOR1.
+      *DIVIDE
+      *    DIVIDE 2 INTO WRK-VALOR.  ---> RESULTADO NA PROPRIA VAR
+           DIVIDE 2 INTO WRK-VALOR GIVING WRK-RESULTADO.
+           DISPLAY WRK-RESULTADO.
 
            STOP RUN.
 
