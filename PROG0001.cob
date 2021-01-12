@@ -21,19 +21,19 @@
       *----------------------------------------------------------------*
 
        77  WRK-VALOR             PIC 9(5)   VALUE 63.
-       77  WRK-VALOR2            PIC X(5)   VALUE '55'.
-
+       77  WRK-VALOR2            PIC X(5)   VALUE '33'.
+       77  WRK-NEGATIVO          PIC S99    VALUE -10.
 
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           IF WRK-VALOR2 NOT IS NUMERIC
-               DISPLAY 'V2 É ALFANUMERICO'
-           ELSE
-               DISPLAY 'V2 É NUMERICO'
+           IF WRK-NEGATIVO IS NEGATIVE
+               DISPLAY WRK-NEGATIVO
            END-IF.
+
+
 
            STOP RUN.
 
