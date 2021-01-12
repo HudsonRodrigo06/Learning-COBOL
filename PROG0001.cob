@@ -20,7 +20,7 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-VALOR           PIC 9(5)   VALUE 60.
+       77  WRK-VALOR           PIC 9(5)   VALUE 63.
        77  WRK-RESTO            PIC 9(5)   VALUE ZEROS.
        77  WRK-RESULTADO        PIC 9(5)   VALUE ZEROS.
 
@@ -31,8 +31,12 @@
       *================================================================*
       *DIVIDE
       *    DIVIDE 2 INTO WRK-VALOR.  ---> RESULTADO NA PROPRIA VAR
-           DIVIDE 2 INTO WRK-VALOR GIVING WRK-RESULTADO.
-           DISPLAY WRK-RESULTADO.
+
+           DIVIDE 2 INTO WRK-VALOR GIVING WRK-RESULTADO
+           REMAINDER WRK-RESTO.
+
+
+           DISPLAY WRK-RESTO.
 
            STOP RUN.
 
