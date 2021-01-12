@@ -28,6 +28,7 @@
       *================================================================*
 
 
+           SUBTRACT 50 FROM 100 GIVING WRK-VALOR1.
            COMPUTE WRK-VALOR1 = 100 - 60.
            DISPLAY WRK-VALOR1.
 
