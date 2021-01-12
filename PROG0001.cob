@@ -20,6 +20,17 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
+      *---- VARIÁVEIS ----*
+       77  LETRAS              PIC A(20).
+       77  ALPHANUMERICOS      PIC X(20).
+       77  NUMEROS-INT         PIC 9(5).
+       77  NUMEROS-DOUBLE      PIC 9(5)V9(2).
+       77  NUMEROS-SINAL       PIC S9(5).
+      *-------------------*
+
+      *---- CONSTANTES ----*
+       78  C_TOTAL             VALUE 100.
+      * -------------------*
 
 
 
