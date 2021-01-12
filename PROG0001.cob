@@ -19,61 +19,46 @@
       *----------------------------------------------------------------*
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
-      *----- "OBJETO" AUXILIAR PARA RECEBER DADOS DE RETORNO DA FUNCTION
-       01 WS-TEMP-DT.
-           05 WS-TEMP-DATE-TIME.
-               10 WS-TEMP-DATE.
-                   15 WS-TEMP-YEAR  PIC  9(4).
-                   15 WS-TEMP-MONTH PIC  9(2).
-                   15 WS-TEMP-DAY   PIC  9(2).
-               10 WS-TEMP-TIME.
-                   15 WS-TEMP-HOUR  PIC  9(2).
-                   15 WS-TEMP-MIN   PIC  9(2).
-                   15 WS-TEMP-SEC   PIC  9(2).
-                   15 WS-TEMP-MS    PIC  9(2).
-               10 WS-DIFF-GMT         PIC S9(4).
-      *----------------------------------------------------------------*
-
-      *------ OBJETO QUE VAI RECEBER OS VALORES DO AUXILIAR + FORMATO -*
+      *-------recebendo retorno em uma string auxiliar-----------------*
+       01 WS-DATETIME              PIC X(21).
+      *------formatado pegando partes da string por indice-----*
        01 WS-FORMATTED-DT.
-           05 WS-FORMATTED-DATE-TIME.
-
-               15 WS-FORMATTED-DAY   PIC  9(2).
+           05 WS-FORMATTED-DTE-TME.
+               15 WS-FORMATTED-DY    PIC  9(2).
                15 FILLER             PIC X VALUE '-'.
                15 WS-FORMATTED-MONTH PIC  9(2).
                15 FILLER             PIC X VALUE '-'.
                15 WS-FORMATTED-YEAR  PIC  9(4).
                15 FILLER             PIC X VALUE '-'.
 
-
                15 WS-FORMATTED-HOUR  PIC  9(2).
                15 FILLER             PIC X VALUE ':'.
-               15 WS-FORMATTED-MIN   PIC  9(2).
+               15 WS-FORMATTED-MINS  PIC  9(2).
                15 FILLER             PIC X VALUE ':'.
                15 WS-FORMATTED-SEC   PIC  9(2).
                15 FILLER             PIC X VALUE ':'.
                15 WS-FORMATTED-MS    PIC  9(2).
       *----------------------------------------------------------------*
 
-
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
 
+      *-------- move resultado para a "string":
+               MOVE FUNCTION CURRENT-DATE TO WS-DATETIME.
 
-               MOVE FUNCTION CURRENT-DATE TO WS-TEMP-DATE-TIME
-               MOVE WS-TEMP-YEAR  TO WS-FORMATTED-YEAR
-               MOVE WS-TEMP-MONTH TO WS-FORMATTED-MONTH
-               MOVE WS-TEMP-DAY   TO WS-FORMATTED-DAY
-               MOVE WS-TEMP-HOUR  TO WS-FORMATTED-HOUR
-               MOVE WS-TEMP-MIN   TO WS-FORMATTED-MIN
-               MOVE WS-TEMP-SEC   TO WS-FORMATTED-SEC
-               MOVE WS-TEMP-MS    TO WS-FORMATTED-MS
-
-               DISPLAY WS-FORMATTED-DATE-TIME
+      *-------- pega "pedaços da "string" por indice:
+               MOVE WS-DATETIME(1:4)  TO WS-FORMATTED-YEAR.
+               MOVE WS-DATETIME(5:2)  TO WS-FORMATTED-MONTH.
+               MOVE WS-DATETIME(7:2)  TO WS-FORMATTED-DY.
+               MOVE WS-DATETIME(9:2)  TO WS-FORMATTED-HOUR.
+               MOVE WS-DATETIME(11:2) TO WS-FORMATTED-MINS.
+               MOVE WS-DATETIME(13:2) TO WS-FORMATTED-SEC.
+               MOVE WS-DATETIME(15:2) TO WS-FORMATTED-MS.
 
 
-
+               DISPLAY WS-DATETIME.
+               DISPLAY WS-FORMATTED-DT.
 
            STOP RUN.
 
