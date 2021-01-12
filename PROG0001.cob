@@ -19,19 +19,59 @@
       *----------------------------------------------------------------*
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
+      *----- "OBJETO" AUXILIAR PARA RECEBER DADOS DE RETORNO DA FUNCTION
+       01 WS-TEMP-DT.
+           05 WS-TEMP-DATE-TIME.
+               10 WS-TEMP-DATE.
+                   15 WS-TEMP-YEAR  PIC  9(4).
+                   15 WS-TEMP-MONTH PIC  9(2).
+                   15 WS-TEMP-DAY   PIC  9(2).
+               10 WS-TEMP-TIME.
+                   15 WS-TEMP-HOUR  PIC  9(2).
+                   15 WS-TEMP-MIN   PIC  9(2).
+                   15 WS-TEMP-SEC   PIC  9(2).
+                   15 WS-TEMP-MS    PIC  9(2).
+               10 WS-DIFF-GMT         PIC S9(4).
+      *----------------------------------------------------------------*
 
-       77  WRK-VALOR             PIC 9(5)   VALUE 63.
-       77  WRK-VALOR2            PIC X(5)   VALUE '33'.
-       77  WRK-NEGATIVO          PIC S99    VALUE -10.
+      *------ OBJETO QUE VAI RECEBER OS VALORES DO AUXILIAR + FORMATO -*
+       01 WS-FORMATTED-DT.
+           05 WS-FORMATTED-DATE-TIME.
+
+               15 WS-FORMATTED-DAY   PIC  9(2).
+               15 FILLER             PIC X VALUE '-'.
+               15 WS-FORMATTED-MONTH PIC  9(2).
+               15 FILLER             PIC X VALUE '-'.
+               15 WS-FORMATTED-YEAR  PIC  9(4).
+               15 FILLER             PIC X VALUE '-'.
+
+
+               15 WS-FORMATTED-HOUR  PIC  9(2).
+               15 FILLER             PIC X VALUE ':'.
+               15 WS-FORMATTED-MIN   PIC  9(2).
+               15 FILLER             PIC X VALUE ':'.
+               15 WS-FORMATTED-SEC   PIC  9(2).
+               15 FILLER             PIC X VALUE ':'.
+               15 WS-FORMATTED-MS    PIC  9(2).
+      *----------------------------------------------------------------*
 
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           IF WRK-NEGATIVO IS NEGATIVE
-               DISPLAY WRK-NEGATIVO
-           END-IF.
+
+               MOVE FUNCTION CURRENT-DATE TO WS-TEMP-DATE-TIME
+               MOVE WS-TEMP-YEAR  TO WS-FORMATTED-YEAR
+               MOVE WS-TEMP-MONTH TO WS-FORMATTED-MONTH
+               MOVE WS-TEMP-DAY   TO WS-FORMATTED-DAY
+               MOVE WS-TEMP-HOUR  TO WS-FORMATTED-HOUR
+               MOVE WS-TEMP-MIN   TO WS-FORMATTED-MIN
+               MOVE WS-TEMP-SEC   TO WS-FORMATTED-SEC
+               MOVE WS-TEMP-MS    TO WS-FORMATTED-MS
+
+               DISPLAY WS-FORMATTED-DATE-TIME
+
 
 
 
