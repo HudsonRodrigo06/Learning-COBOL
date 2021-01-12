@@ -20,23 +20,20 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-VALOR           PIC 9(5)   VALUE 63.
-       77  WRK-RESTO            PIC 9(5)   VALUE ZEROS.
-       77  WRK-RESULTADO        PIC 9(5)   VALUE ZEROS.
+       77  WRK-VALOR             PIC 9(5)   VALUE 63.
+       77  WRK-VALOR2            PIC X(5)   VALUE '55'.
 
 
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
-      *DIVIDE
-      *    DIVIDE 2 INTO WRK-VALOR.  ---> RESULTADO NA PROPRIA VAR
 
-           DIVIDE 2 INTO WRK-VALOR GIVING WRK-RESULTADO
-           REMAINDER WRK-RESTO.
-
-
-           DISPLAY WRK-RESTO.
+           IF WRK-VALOR2 NOT IS NUMERIC
+               DISPLAY 'V2 É ALFANUMERICO'
+           ELSE
+               DISPLAY 'V2 É NUMERICO'
+           END-IF.
 
            STOP RUN.
 
