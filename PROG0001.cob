@@ -35,6 +35,8 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
+           MOVE '2021' TO WS-YEAR.
+
            DISPLAY "WS-DATE1 : "WS-DATE1.
            DISPLAY "WS-DATE2 : "WS-DATE2.
 
