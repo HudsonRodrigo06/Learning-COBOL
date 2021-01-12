@@ -20,10 +20,7 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-DATA PIC 9(6).
-       77  WRK-DATA-JULIANA    PIC 9(6).
-       77  WRK-DIA-SEMANA      PIC 99.
-       77  WRK-TESTE           PIC X(40).
+       77  WRK-HORA           PIC X(40).
 
 
 
@@ -32,13 +29,11 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           ACCEPT WRK-DATA FROM DATE.
-           ACCEPT WRK-DATA-JULIANA FROM DAY.
-           ACCEPT WRK-DIA-SEMANA FROM DAY-OF-WEEK.
+           ACCEPT WRK-HORA FROM TIME.
 
 
 
-           DISPLAY "DATA: " WRK-DIA-SEMANA.
+           DISPLAY "HORARIO: " WRK-HORA.
 
            STOP RUN.
 
