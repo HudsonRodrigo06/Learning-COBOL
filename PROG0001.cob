@@ -20,33 +20,25 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WK-MAIOR PIC 999 VALUE ZEROS.
-       77  WK-N1     PIC 999 VALUE ZEROS.
-       77  WK-N2     PIC 999 VALUE ZEROS.
-       77  WK-N3     PIC 999 VALUE ZEROS.
-       77  WK-QTDE  PIC 999 VALUE ZEROS.
+       77  WRK-DATA PIC 9(6).
+       77  WRK-DATA-JULIANA    PIC 9(6).
+       77  WRK-DIA-SEMANA      PIC 99.
+       77  WRK-TESTE           PIC X(40).
+
+
+
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           ACCEPT WK-N1.
-           ACCEPT WK-N2.
-           ACCEPT WK-N3.
+           ACCEPT WRK-DATA FROM DATE.
+           ACCEPT WRK-DATA-JULIANA FROM DAY.
+           ACCEPT WRK-DIA-SEMANA FROM DAY-OF-WEEK.
 
-           IF WK-N1 > WK-MAIOR THEN
-               MOVE WK-N1 TO WK-MAIOR
-           END-IF.
 
-           IF WK-N2 > WK-MAIOR THEN
-               MOVE WK-N2 TO WK-MAIOR
-           END-IF.
 
-           IF WK-N3 > WK-MAIOR THEN
-               MOVE WK-N3 TO WK-MAIOR
-           END-IF.
-
-           DISPLAY "Maior: " WK-MAIOR.
+           DISPLAY "DATA: " WRK-DIA-SEMANA.
 
            STOP RUN.
 
