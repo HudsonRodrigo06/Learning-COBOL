@@ -63,9 +63,11 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-      *     ADD 4 TO IDADE TOTAL OF CLIENTE
+           ADD 1 1 TO IDADE TOTAL OF CLIENTE
+      *    ADD 1 GIVING IDADE --> Substitui o valor para 1
+           DISPLAY "Idade: " IDADE OF CLIENTE
+           DISPLAY " Total: " TOTAL OF CLIENTE
 
-           DISPLAY "Cliente: " CLIENTE " Carro: " CARRO.
            STOP RUN.
 
        END PROGRAM VARIAVEIS-GRUPOS.
