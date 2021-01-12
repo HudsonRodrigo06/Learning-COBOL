@@ -20,23 +20,16 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-VALOR           PIC 9(2)   VALUE 10.
-
+       77  WRK-VALOR1           PIC 9(5)   VALUE 10.
+       77  WRK-VALOR2           PIC 9(5)   VALUE 2.
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           ADD 1100 TO WRK-VALOR
 
-               ON SIZE ERROR
-                   DISPLAY "SIZE ERROR"
-
-               IF WRK-VALOR > 10 THEN
-                   DISPLAY "SIM"
-               END-IF
-
-           END-ADD.
+           COMPUTE WRK-VALOR1 = WRK-VALOR1**2.
+           DISPLAY WRK-VALOR1.
 
            STOP RUN.
 
