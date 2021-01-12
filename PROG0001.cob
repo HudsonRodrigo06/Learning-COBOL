@@ -48,7 +48,15 @@
        01  CARRO.
            02  MARCA           PIC X(8)    VALUE "HYUNDAI".
            02  COR             PIC X(10)   VALUE "VERMELHO".
+           66  MARCA-COR RENAMES MARCA THRU COR.
 
+
+      *---- BOOLEAN RESULT IN GROUP -----*
+       01  GENERO              PIC X.
+           88  MASCULINO       VALUE "M".
+           88  FEMININO        VALUE "F".
+
+      *----------------------------------*
 
 
       *================================================================*
