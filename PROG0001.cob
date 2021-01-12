@@ -20,20 +20,23 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-HORA           PIC X(40).
-
-
+       77  WRK-VALOR           PIC 9(2)   VALUE 10.
 
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           ACCEPT WRK-HORA FROM TIME.
+           ADD 1100 TO WRK-VALOR
 
+               ON SIZE ERROR
+                   DISPLAY "SIZE ERROR"
 
+               IF WRK-VALOR > 10 THEN
+                   DISPLAY "SIM"
+               END-IF
 
-           DISPLAY "HORARIO: " WRK-HORA.
+           END-ADD.
 
            STOP RUN.
 
