@@ -20,7 +20,7 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-VALOR1           PIC 9(5)   VALUE 10.
+       77  WRK-VALOR1           PIC 9(5)   VALUE 100.
        77  WRK-VALOR2           PIC 9(5)   VALUE 2.
 
       *================================================================*
@@ -28,7 +28,7 @@
       *================================================================*
 
 
-           COMPUTE WRK-VALOR1 = WRK-VALOR1**2.
+           COMPUTE WRK-VALOR1 = 100 - 60.
            DISPLAY WRK-VALOR1.
 
            STOP RUN.
