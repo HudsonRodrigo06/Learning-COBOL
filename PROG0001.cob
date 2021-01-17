@@ -1,5 +1,5 @@
       *================================================================*
-       IDENTIFICATION                                          DIVISION.
+       ID                                        DIVISION.
       *================================================================*
        PROGRAM-ID. VARIAVEIS-GRUPOS.
 
@@ -19,31 +19,26 @@
       *----------------------------------------------------------------*
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
-       01 WS-DESCRIPTION.
-           05 WS-DATE1.
-               10 WS-DATE         PIC X(2) VALUE '20'.
-               10 FILLER          PIC X    VALUE '-'.
-               10 WS-MONTH        PIC X(2) VALUE '08'.
-               10 FILLER          PIC X    VALUE '-'.
-               10 WS-YEAR         PIC X(4) VALUE '2020'.
 
-      *---- FUNCIONA COMO UM PONTEIRO PARA A MESMA REGIAO DE MEMORIA --*
-           05 WS-DATE2 REDEFINES WS-DATE1 PIC 9(10).
+       77  WRK-CAMPO   PIC 9(10)V99    VALUE  12345.
+
+      *    SOMENTE MOSTRA O SINAL QUANDO O NUMERO NEGATIVO
+       77  GDA-VL-SEM-ZEROS              PIC +++++++9 VALUE ZEROS.
+
+      * -- GUARDA O NUMERO FORMATADO PARA A MASCARA DE DATA DD/MM/AAAA
+       77  GDA-DATA                      PIC ZZ/ZZ/ZZZZ.
+
+       77  WRK-MASK  PIC ZZZZ9,99.
+
+
       *----------------------------------------------------------------*
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
-
-           MOVE '2021' TO WS-YEAR.
-
-           DISPLAY "WS-DATE1 : "WS-DATE1.
-           DISPLAY "WS-DATE2 : "WS-DATE2.
-
-           MOVE '12' TO WS-DATE.
-
-           DISPLAY "WS-DATE1 : "WS-DATE1.
-           DISPLAY "WS-DATE2 : "WS-DATE2.
+           MOVE WRK-CAMPO TO WRK-MASK
+           DISPLAY WRK-CAMPO
+           DISPLAY WRK-MASK
 
            STOP RUN.
 
