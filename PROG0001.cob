@@ -20,12 +20,12 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       01      FDE-CPO3       PIC 9(05) VALUE 12345.
-       01      FDE-CPO5       PIC 9(05) COMP-3 VALUE 11111.
-       01      FDS-CPO12      PIC 9(05).
+       01      FDE-CPO13    PIC S9(04) COMP-3 VALUE -1111.
+       01      FDS-CPO14    PIC  9(04).
 
-       01  WRK-AUX PIC 9(05) COMP-3.
-       01  WRK-RES PIC 9(05) COMP-3.
+       01      WRK-AUX      PIC S9(04).
+       01      FILLER REDEFINES WRK-AUX.
+               05 WRK-NOSIGNAL  PIC 9(04).
 
       *----------------------------------------------------------------*
 
@@ -33,14 +33,8 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           MOVE FDE-CPO3 TO WRK-AUX
-
-           COMPUTE WRK-RES = WRK-AUX  + FDE-CPO5.
-
-           MOVE WRK-RES TO FDS-CPO12
-
-           DISPLAY FDS-CPO12
-           DISPLAY WRK-RES
+           MOVE FDE-CPO13 TO WRK-AUX
+           MOVE WRK-NOSIGNAL TO FDS-CPO14
 
            STOP RUN.
 
