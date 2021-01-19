@@ -1,5 +1,5 @@
       *================================================================*
-       ID                                        DIVISION.
+       IDENTIFICATION                                          DIVISION.
       *================================================================*
        PROGRAM-ID. VARIAVEIS-GRUPOS.
 
@@ -20,25 +20,27 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WRK-CAMPO   PIC 9(10)V99    VALUE  12345.
+       01  FDE-CPO5                  PIC 9(05) COMP-3 VALUE 12345.
+       01  FDS-CPO5                  PIC 9(03) COMP-3.
 
-      *    SOMENTE MOSTRA O SINAL QUANDO O NUMERO NEGATIVO
-       77  GDA-VL-SEM-ZEROS              PIC +++++++9 VALUE ZEROS.
-
-      * -- GUARDA O NUMERO FORMATADO PARA A MASCARA DE DATA DD/MM/AAAA
-       77  GDA-DATA                      PIC ZZ/ZZ/ZZZZ.
-
-       77  WRK-MASK  PIC ZZZZ9,99.
-
+       01  WRK-CPO5   PIC 9(05).
+       01  FILLER REDEFINES WRK-CPO5.
+           05  FILLER                PIC 9(02).
+           05  WRK-CPO3              PIC 9(03).
 
       *----------------------------------------------------------------*
 
       *================================================================*
        PROCEDURE                                               DIVISION.
       *================================================================*
-           MOVE WRK-CAMPO TO WRK-MASK
-           DISPLAY WRK-CAMPO
-           DISPLAY WRK-MASK
+
+           MOVE FDE-CPO5 TO WRK-CPO5.
+           MOVE WRK-CPO3 TO FDS-CPO5.
+
+           DISPLAY FDE-CPO5.
+           DISPLAY FDS-CPO5.
+
+
 
            STOP RUN.
 
