@@ -20,13 +20,13 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       01  FDE-CPO5                  PIC 9(05) COMP-3 VALUE 12345.
-       01  FDS-CPO5                  PIC 9(03) COMP-3.
+       01      FDE-CPO1        			PIC X(05) VALUE '123@'.
+       01      FDS-CPO7        			PIC 9(05).
 
-       01  WRK-CPO5   PIC 9(05).
-       01  FILLER REDEFINES WRK-CPO5.
-           05  FILLER                PIC 9(02).
-           05  WRK-CPO3              PIC 9(03).
+
+       01  WRK-SIMB PIC X(05).
+       01  FILLER  REDEFINES   WRK-SIMB.
+           05  WRK-NUM PIC 9(05).
 
       *----------------------------------------------------------------*
 
@@ -34,11 +34,15 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           MOVE FDE-CPO5 TO WRK-CPO5.
-           MOVE WRK-CPO3 TO FDS-CPO5.
+           MOVE    FDE-CPO1    TO  WRK-SIMB.
+           MOVE    WRK-SIMB    TO  FDS-CPO7.
 
-           DISPLAY FDE-CPO5.
-           DISPLAY FDS-CPO5.
+           DISPLAY FDS-CPO7
+      *     MOVE FDE-CPO5 TO WRK-CPO5.
+      *     MOVE WRK-CPO3 TO FDS-CPO5.
+      *
+      *     DISPLAY FDE-CPO5.
+      *     DISPLAY FDS-CPO5.
 
 
 
