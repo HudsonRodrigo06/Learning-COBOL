@@ -20,13 +20,13 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       01      FDE-CPO1        			PIC X(05) VALUE '123@'.
-       01      FDS-CPO7        			PIC 9(05).
+       01      FDE-CPO6            PIC S9(05) COMP-3 VALUE -123.
+       01      FDS-CPO11           PIC  X(05).
 
+       01  WRK-AUX PIC S9(05).
+       01  FILLER  REDEFINES WRK-AUX.
+           05  WRK-ALFANUM PIC  X(05).
 
-       01  WRK-SIMB PIC X(05).
-       01  FILLER  REDEFINES   WRK-SIMB.
-           05  WRK-NUM PIC 9(05).
 
       *----------------------------------------------------------------*
 
@@ -34,16 +34,10 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           MOVE    FDE-CPO1    TO  WRK-SIMB.
-           MOVE    WRK-SIMB    TO  FDS-CPO7.
+           MOVE    FDE-CPO6  TO  WRK-AUX.
+           MOVE    WRK-ALFANUM  TO  FDS-CPO11.
 
-           DISPLAY FDS-CPO7
-      *     MOVE FDE-CPO5 TO WRK-CPO5.
-      *     MOVE WRK-CPO3 TO FDS-CPO5.
-      *
-      *     DISPLAY FDE-CPO5.
-      *     DISPLAY FDS-CPO5.
-
+           DISPLAY FDS-CPO11.
 
 
            STOP RUN.
