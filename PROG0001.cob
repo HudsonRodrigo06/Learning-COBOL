@@ -20,12 +20,10 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       01      FDE-CPO13    PIC S9(04) COMP-3 VALUE -1111.
-       01      FDS-CPO14    PIC  9(04).
 
-       01      WRK-AUX      PIC S9(04).
-       01      FILLER REDEFINES WRK-AUX.
-               05 WRK-NOSIGNAL  PIC 9(04).
+
+
+
 
       *----------------------------------------------------------------*
 
@@ -33,8 +31,15 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-           MOVE FDE-CPO13 TO WRK-AUX
-           MOVE WRK-NOSIGNAL TO FDS-CPO14
+           MAINLINE.
+	          PERFORM 100-ROTINA-A.
+	          GOBACK.
+
+           100-ROTINA-A.
+               DISPLAY 'AAAAAAAAA'.
+           200-ROTINA-B.
+               DISPLAY 'BBBBBBBBB'.
+
 
            STOP RUN.
 
