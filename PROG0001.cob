@@ -20,10 +20,8 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-
-
-
-
+       77  WS-SOMA PIC 9(04) VALUE ZEROS.
+       77  WS-IND  PIC 9(04) VALUE ZEROS.
 
       *----------------------------------------------------------------*
 
@@ -31,20 +29,19 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
+
+
            MAINLINE.
-	          PERFORM 100-ROTINA-A THRU 300-ROTINA-C.
-	          GOBACK.
 
-           100-ROTINA-A.
-               DISPLAY 'AAAAAAAAA'.
-           200-ROTINA-B.
-               DISPLAY 'BBBBBBBBB'.
-           300-ROTINA-C.
-               DISPLAY 'CCCCCCCCC'.
-           400-ROTINA-D.
-               DISPLAY 'DDDDDDDDD'.
+           PERFORM 100-SOMA
+               VARYING WS-IND FROM 0 BY 1 UNTIL WS-IND = 10.
+
+           DISPLAY WS-SOMA.
+           GOBACK.
+
+           100-SOMA.
+               ADD 1 TO WS-SOMA.
 
 
-           STOP RUN.
 
        END PROGRAM VARIAVEIS-GRUPOS.
