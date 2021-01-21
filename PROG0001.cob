@@ -32,13 +32,17 @@
       *================================================================*
 
            MAINLINE.
-	          PERFORM 100-ROTINA-A.
+	          PERFORM 100-ROTINA-A THRU 300-ROTINA-C.
 	          GOBACK.
 
            100-ROTINA-A.
                DISPLAY 'AAAAAAAAA'.
            200-ROTINA-B.
                DISPLAY 'BBBBBBBBB'.
+           300-ROTINA-C.
+               DISPLAY 'CCCCCCCCC'.
+           400-ROTINA-D.
+               DISPLAY 'DDDDDDDDD'.
 
 
            STOP RUN.
