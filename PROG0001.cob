@@ -20,8 +20,10 @@
        WORKING-STORAGE                                 SECTION.
       *----------------------------------------------------------------*
 
-       77  WS-SOMA PIC 9(04) VALUE ZEROS.
-       77  WS-IND  PIC 9(04) VALUE ZEROS.
+       77  WS-QTD	    PIC S9(004) VALUE ZEROES.
+       77  WS-IND	    PIC S9(004) VALUE ZEROES.
+       77  WS-CHAVE   PIC  X(001) VALUE SPACES.
+
 
       *----------------------------------------------------------------*
 
@@ -29,18 +31,27 @@
        PROCEDURE                                               DIVISION.
       *================================================================*
 
-
-
            MAINLINE.
+	          PERFORM 100-ROTINA-A.
 
-           PERFORM 100-SOMA
-               VARYING WS-IND FROM 0 BY 1 UNTIL WS-IND = 10.
+	          PERFORM 200-ROTINA-B
+                 VARYING WS-IND FROM 1 BY 1 UNTIL WS-IND > 10.
 
-           DISPLAY WS-SOMA.
-           GOBACK.
+	          PERFORM 300-ROTINA-C WITH TEST AFTER
+               VARYING WS-IND FROM 1 BY 1  UNTIL  WS-CHAVE = SPACES.
 
-           100-SOMA.
-               ADD 1 TO WS-SOMA.
+           DISPLAY    WS-QTD.
+	          GOBACK.
+
+           100-ROTINA-A.
+	              ADD	   1	   TO	   WS-QTD.
+
+           200-ROTINA-B.
+	              ADD	   2	   TO	   WS-QTD.
+
+           300-ROTINA-C.
+	              ADD	   4	   TO	   WS-QTD.
+
 
 
 
